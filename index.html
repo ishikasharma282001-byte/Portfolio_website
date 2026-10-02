@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ishika Sharma — Strategic Partnerships & Operations Professional. Portfolio for Engagement Operations Associate role at Intellect." />
+  <title>Ishika Sharma — Strategic Partnerships & Operations</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== CSS RESET & VARIABLES ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #F8F6F2;
+      --bg-card: #FFFFFF;
+      --bg-card-hover: #FAFAF8;
+      --text: #1C1C1E;
+      --text-secondary: #4A4A52;
+      --text-muted: #8A8A95;
+      --accent: #2B52CC;
+      --accent-light: #E8EEFF;
+      --accent-hover: #1E3FA8;
+      --border: #E8E6E0;
+      --border-light: #F0EDE8;
+      --shadow: rgba(28, 28, 30, 0.06);
+      --shadow-md: rgba(28, 28, 30, 0.10);
+      --nav-h: 64px;
+      --max-w: 1120px;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      /* Subtle dot-grid — references structured data, operational grids */
+      background-image: radial-gradient(circle, rgba(43,82,204,0.08) 1px, transparent 1px);
+      background-size: 30px 30px;
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Fixed node-network canvas sits behind all content */
+    #bg-network {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Lift all content above the network layer */
+    nav, .mobile-menu, section, .divider,
+    .tools-section, footer {
+      position: relative;
+      z-index: 1;
+    }
+    /* Hero already has position relative; keep stacking context correct */
+    #hero { z-index: 1; }
+    nav { z-index: 100; }
+    .mobile-menu { z-index: 99; }
+    .modal-overlay { z-index: 200; }
+
+    /* ===== SCROLL BEHAVIOUR ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ===== UTILITY ===== */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .section { padding: 120px 0; }
+    .section + .section { padding-top: 0; }
+
+    /* ===== SCROLL FADE IN ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.4,0,0.2,1), transform 0.65s cubic-bezier(0.4,0,0.2,1);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up.delay-1 { transition-delay: 0.08s; }
+    .fade-up.delay-2 { transition-delay: 0.16s; }
+    .fade-up.delay-3 { transition-delay: 0.24s; }
+    .fade-up.delay-4 { transition-delay: 0.32s; }
+    .fade-up.delay-5 { transition-delay: 0.40s; }
+    .fade-up.delay-6 { transition-delay: 0.48s; }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: var(--nav-h);
+      background: rgba(248, 246, 242, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    nav.scrolled { border-bottom-color: var(--border); }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      position: relative;
+      padding-bottom: 2px;
+      transition: color var(--transition);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0;
+      width: 0; height: 1.5px;
+      background: var(--accent);
+      transition: width 0.28s cubic-bezier(0.4,0,0.2,1);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+      border-radius: 3px;
+    }
+
+    /* Hamburger */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 22px; height: 1.5px;
+      background: var(--text);
+      transition: transform var(--transition), opacity var(--transition);
+      transform-origin: center;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0; right: 0;
+      background: rgba(248,246,242,0.97);
+      backdrop-filter: blur(14px);
+      padding: 24px 32px 32px;
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      flex-direction: column;
+      gap: 0;
+      transform: translateY(-10px);
+      opacity: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .mobile-menu.open { transform: translateY(0); opacity: 1; }
+    .mobile-menu a {
+      display: block;
+      padding: 14px 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .mobile-menu { display: flex; }
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), box-shadow var(--transition), transform var(--transition);
+      text-decoration: none;
+      border: none;
+    }
+    .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      box-shadow: 0 4px 18px rgba(43, 82, 204, 0.28);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: var(--nav-h);
+    }
+    .hero-wave {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-wave svg {
+      width: 100%; height: 100%;
+      position: absolute; inset: 0;
+      opacity: 0.45;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 100px 0 80px;
+    }
+    .hero-eyebrow {
+      margin-bottom: 28px;
+    }
+    .hero-name {
+      font-size: clamp(46px, 7vw, 88px);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.02;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+    .hero-name span { color: var(--accent); }
+    .hero-title {
+      font-size: clamp(16px, 2.5vw, 22px);
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+    }
+    .hero-quote {
+      font-size: clamp(17px, 2.2vw, 21px);
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.015em;
+      line-height: 1.45;
+      max-width: 640px;
+      margin-bottom: 18px;
+      border-left: 3px solid var(--accent);
+      padding-left: 18px;
+    }
+    .hero-body {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 44px;
+      line-height: 1.75;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 56px; }
+    .hero-meta {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+    .hero-meta-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* ===== DIVIDER ===== */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 0 32px;
+      max-width: calc(var(--max-w) + 64px);
+      margin-left: auto; margin-right: auto;
+    }
+
+    /* ===== BACKGROUND INTEGRATION =====
+       Cards become very slightly translucent so the dot-grid and
+       network show through at low opacity — creates depth without blur.
+    ================================================================ */
+    :root {
+      --bg-card: rgba(255, 255, 255, 0.88);
+    }
+    /* Sections get a very subtle warm wash so text stays crisp over the canvas */
+    section, .tools-section, footer {
+      background: rgba(248, 246, 242, 0.72);
+    }
+    /* Hero gets a stronger wash since it has its own animated wave */
+    #hero {
+      background: rgba(248, 246, 242, 0.82);
+    }
+    /* Navbar needs to stay solid */
+    nav {
+      background: rgba(248, 246, 242, 0.92) !important;
+    }
+
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-heading {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin: 16px 0 28px;
+    }
+    .about-body {
+      font-size: 15.5px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .about-body p + p { margin-top: 16px; }
+
+    /* Process Flow */
+    .process-flow {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 32px;
+      margin-top: 8px;
+    }
+    .process-flow-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .process-nodes {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      align-items: flex-start;
+    }
+    .process-node-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      width: 100%;
+    }
+    .process-node {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .node-dot {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .node-dot svg { color: var(--accent); }
+    .process-node:hover .node-dot { background: var(--accent); transform: scale(1.08); }
+    .process-node:hover .node-dot svg { color: #fff; }
+    .node-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .node-connector {
+      width: 1px;
+      height: 28px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      margin-left: 17px;
+      position: relative;
+      overflow: hidden;
+    }
+    .node-connector::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent);
+      animation: flowDown 2.2s ease-in-out infinite;
+    }
+    @keyframes flowDown {
+      0% { top: -100%; }
+      100% { top: 100%; }
+    }
+
+    /* ===== EXPERIENCE ===== */
+    #experience { padding-bottom: 0; }
+    .section-header { margin-bottom: 64px; }
+    .section-heading {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-top: 14px;
+    }
+
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 12px; bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      padding-left: 32px;
+      padding-bottom: 48px;
+      position: relative;
+      cursor: pointer;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-dot {
+      position: absolute;
+      left: -5px; top: 10px;
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+    .timeline-item:hover .timeline-dot,
+    .timeline-item.active .timeline-dot {
+      border-color: var(--accent);
+      background: var(--accent);
+      transform: scale(1.2);
+    }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+    .timeline-item:hover .timeline-card,
+    .timeline-item.active .timeline-card {
+      border-color: rgba(43, 82, 204, 0.25);
+      box-shadow: 0 6px 28px var(--shadow);
+      transform: translateY(-2px);
+    }
+
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 4px;
+    }
+    .timeline-role {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .timeline-focus {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 4px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity var(--transition);
+      flex-shrink: 0;
+    }
+    .timeline-item:hover .timeline-focus,
+    .timeline-item.active .timeline-focus { opacity: 1; }
+
+    .timeline-company {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+    .timeline-period {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .timeline-desc {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.65;
+    }
+    .timeline-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s ease;
+      opacity: 0;
+    }
+    .timeline-item.active .timeline-bullets {
+      max-height: 600px;
+      opacity: 1;
+    }
+    .timeline-bullets li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+    }
+    .timeline-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 10px;
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.5;
+    }
+    .timeline-toggle {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap var(--transition);
+    }
+    .timeline-item:hover .timeline-toggle { gap: 8px; }
+    .timeline-toggle svg {
+      transition: transform 0.28s ease;
+    }
+    .timeline-item.active .timeline-toggle svg { transform: rotate(180deg); }
+
+    /* ===== WORK (PROJECTS) ===== */
+    .work-header { margin-bottom: 52px; }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .work-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      cursor: pointer;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      transform-style: preserve-3d;
+      will-change: transform;
+      position: relative;
+      overflow: hidden;
+    }
+    .work-card:hover {
+      border-color: rgba(43, 82, 204, 0.3);
+      box-shadow: 0 8px 32px var(--shadow-md);
+    }
+    .work-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .card-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .card-title {
+      font-size: 17.5px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .card-tagline {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+    .card-body {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+    .card-arrow {
+      position: absolute;
+      bottom: 28px; right: 28px;
+      width: 32px; height: 32px;
+      border: 1.5px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: border-color var(--transition), color var(--transition), background var(--transition);
+    }
+    .work-card:hover .card-arrow {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* ===== MODAL ===== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(28,28,30,0.5);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      backdrop-filter: blur(4px);
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      padding: 44px 48px;
+      max-width: 580px;
+      width: 100%;
+      max-height: 85vh;
+      overflow-y: auto;
+      transform: translateY(12px);
+      transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+      border: 1px solid var(--border);
+    }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: color var(--transition);
+      padding: 6px;
+      border-radius: 50%;
+    }
+    .modal-close:hover { color: var(--text); background: var(--border-light); }
+    .modal-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .modal-num { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--text-muted); margin-bottom: 14px; }
+    .modal-title { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 8px; }
+    .modal-tagline { font-size: 14.5px; color: var(--accent); font-style: italic; font-weight: 500; margin-bottom: 24px; }
+    .modal-body { font-size: 15px; color: var(--text-secondary); line-height: 1.75; margin-bottom: 28px; }
+    .modal-tags-label { font-size: 11px; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+    .modal-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .modal-inner { position: relative; }
+
+    /* ===== SKILLS SECTION ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    }
+    .skill-card:hover {
+      border-color: rgba(43, 82, 204, 0.25);
+      box-shadow: 0 6px 24px var(--shadow);
+      transform: translateY(-3px);
+    }
+    .skill-icon {
+      width: 38px; height: 38px;
+      background: var(--accent-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      color: var(--accent);
+    }
+    .skill-title {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+    .skill-body {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+    }
+
+    /* ===== TOOLS MARQUEE ===== */
+    .tools-section { padding: 72px 0; overflow: hidden; }
+    .tools-label { text-align: center; margin-bottom: 36px; }
+    .marquee-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+    .marquee-wrap::before,
+    .marquee-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-wrap::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+    .marquee-wrap::after { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 22s linear infinite;
+      width: max-content;
+    }
+    .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .tool-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      margin: 0 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .tool-chip:hover { border-color: var(--accent); color: var(--accent); }
+    .tool-chip-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.4;
+      flex-shrink: 0;
+    }
+
+    /* ===== EDUCATION ===== */
+    .edu-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+    .edu-degree {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .edu-school {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 3px;
+    }
+    .edu-year {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .edu-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--border-light);
+      padding: 8px 16px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    /* ===== CONTACT ===== */
+    #contact { background: var(--bg); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-headline {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.15;
+      margin: 16px 0 24px;
+    }
+    .contact-body {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .contact-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .contact-info { display: flex; flex-direction: column; gap: 20px; padding-top: 8px; }
+    .contact-info-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .contact-info-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .contact-info-value {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .contact-info-value a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .contact-info-value a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .footer-sub {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .footer-copy {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .work-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 0 20px; }
+      .divider { margin: 0 20px; }
+      .section { padding: 80px 0; }
+      .hero-content { padding: 60px 0 60px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .edu-card { flex-direction: column; align-items: flex-start; }
+      .modal { padding: 32px 24px; }
+      .timeline-card { padding: 22px 20px; }
+      .timeline-top { flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .contact-ctas { flex-direction: column; }
+      .contact-ctas .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== BACKGROUND NETWORK CANVAS ===== -->
+<canvas id="bg-network" aria-hidden="true"></canvas>
+
+<!-- ===== NAVBAR ===== -->
+<nav id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">IS<span>.</span></a>
+    <ul class="nav-links" role="list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile navigation">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#experience" class="mobile-link">Experience</a>
+  <a href="#work" class="mobile-link">Work</a>
+  <a href="#skills" class="mobile-link">Skills</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero" aria-label="Hero section">
+  <div class="hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#2B52CC" stop-opacity="0.12"/>
+          <stop offset="100%" stop-color="#2B52CC" stop-opacity="0.03"/>
+        </linearGradient>
+        <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#2B52CC" stop-opacity="0.06"/>
+          <stop offset="100%" stop-color="#2B52CC" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+      <!-- Flow lines -->
+      <path id="wave1" d="M-100,400 C200,300 400,500 700,380 C900,280 1100,440 1540,350" stroke="url(#waveGrad1)" stroke-width="1.5" fill="none" opacity="0.8"/>
+      <path id="wave2" d="M-100,450 C150,350 350,550 650,420 C850,320 1100,480 1540,400" stroke="url(#waveGrad2)" stroke-width="1" fill="none" opacity="0.6"/>
+      <path id="wave3" d="M-100,500 C250,380 500,580 800,460 C1000,370 1200,500 1540,440" stroke="url(#waveGrad1)" stroke-width="0.8" fill="none" opacity="0.5"/>
+      <path id="wave4" d="M-100,320 C300,220 500,420 800,300 C1050,200 1250,360 1540,280" stroke="url(#waveGrad2)" stroke-width="1.2" fill="none" opacity="0.45"/>
+      <path id="wave5" d="M-100,560 C200,460 450,640 750,510 C1000,400 1200,560 1540,490" stroke="url(#waveGrad1)" stroke-width="0.6" fill="none" opacity="0.35"/>
+      <!-- Subtle dots at intersections -->
+      <circle cx="700" cy="380" r="3" fill="#2B52CC" opacity="0.15"/>
+      <circle cx="800" cy="460" r="2" fill="#2B52CC" opacity="0.12"/>
+      <circle cx="650" cy="420" r="2.5" fill="#2B52CC" opacity="0.10"/>
+    </svg>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow fade-up">
+        <span class="eyebrow">Strategic Partnerships & Operations</span>
+      </div>
+      <h1 class="hero-name fade-up delay-1">Ishika<br /><span>Sharma.</span></h1>
+      <p class="hero-title fade-up delay-2">Strategic Partnerships & Operations Professional</p>
+      <blockquote class="hero-quote fade-up delay-3">
+        "Building smoother partner operations through better processes, data and communication."
+      </blockquote>
+      <p class="hero-body fade-up delay-4">
+        2+ years of experience supporting UK financial services across strategic partnerships, event operations, stakeholder coordination, reporting, process improvement and governance.
+      </p>
+      <div class="hero-ctas fade-up delay-5">
+        <a href="#experience" class="btn btn-primary">View My Experience</a>
+        <a href="#contact" class="btn btn-secondary">Let's Connect ↗</a>
+      </div>
+      <div class="hero-meta fade-up delay-6">
+        <div class="hero-meta-item">
+          <span class="hero-meta-dot" aria-hidden="true"></span>
+          Based in Gurugram, India
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-dot" aria-hidden="true"></span>
+          Supporting UK financial services teams
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" role="separator"></div>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Left: text -->
+      <div>
+        <span class="eyebrow fade-up">About</span>
+        <h2 id="about-heading" class="about-heading fade-up delay-1">
+          Operations, partnerships & problem-solving — with a data-driven approach.
+        </h2>
+        <div class="about-body fade-up delay-2">
+          <p>I'm a Strategic Partnership Administrator with experience supporting UK financial services teams across partner operations, events, reporting and process improvement.</p>
+          <p>My work sits at the intersection of people, processes and data — from coordinating stakeholders and maintaining partner documentation to building dashboards and improving manual workflows.</p>
+          <p>I enjoy finding the gap in a process, understanding why it exists, and turning it into something clearer, more efficient and easier for the team to manage.</p>
+          <p>My experience includes working with strategic partners, lenders, event stakeholders and cross-functional teams, while supporting governance and operational requirements.</p>
+        </div>
+      </div>
+
+      <!-- Right: process flow -->
+      <div class="fade-up delay-2">
+        <div class="process-flow" aria-label="Process flow: People, Process, Data, Insight, Improvement">
+          <p class="process-flow-label">How I think about work</p>
+          <div class="process-nodes" role="list">
+
+            <div class="process-node-row" role="listitem">
+              <div class="process-node">
+                <div class="node-dot" aria-hidden="true">
+                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </div>
+                <span class="node-label">People</span>
+              </div>
+            </div>
+
+            <div class="node-connector" aria-hidden="true"></div>
+
+            <div class="process-node-row" role="listitem">
+              <div class="process-node">
+                <div class="node-dot" aria-hidden="true">
+                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                    <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+                  </svg>
+                </div>
+                <span class="node-label">Process</span>
+              </div>
+            </div>
+
+            <div class="node-connector" aria-hidden="true"></div>
+
+            <div class="process-node-row" role="listitem">
+              <div class="process-node">
+                <div class="node-dot" aria-hidden="true">
+                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                  </svg>
+                </div>
+                <span class="node-label">Data</span>
+              </div>
+            </div>
+
+            <div class="node-connector" aria-hidden="true"></div>
+
+            <div class="process-node-row" role="listitem">
+              <div class="process-node">
+                <div class="node-dot" aria-hidden="true">
+                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                    <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+                  </svg>
+                </div>
+                <span class="node-label">Insight</span>
+              </div>
+            </div>
+
+            <div class="node-connector" aria-hidden="true"></div>
+
+            <div class="process-node-row" role="listitem">
+              <div class="process-node">
+                <div class="node-dot" aria-hidden="true">
+                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>
+                  </svg>
+                </div>
+                <span class="node-label">Improvement</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider" role="separator"></div>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience" class="section" aria-labelledby="experience-heading">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="eyebrow">Experience</span>
+      <h2 id="experience-heading" class="section-heading">Where I've worked.</h2>
+    </div>
+
+    <div class="timeline" role="list">
+
+      <!-- EXP 1 -->
+      <div class="timeline-item active" role="listitem" tabindex="0" aria-expanded="true" data-focus="Partnerships · Operations · Process" onclick="toggleTimeline(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleTimeline(this)">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-card">
+          <div class="timeline-top">
+            <h3 class="timeline-role">Strategic Partnership Administrator</h3>
+            <span class="timeline-focus" aria-label="Focus areas">Partnerships · Operations</span>
+          </div>
+          <p class="timeline-company">Sesame Bankhall Group</p>
+          <p class="timeline-period">Aug 2025 – Present</p>
+          <p class="timeline-desc">Supporting the Strategic Relationship Team across UK financial services partnerships, partner operations and business processes.</p>
+          <ul class="timeline-bullets" aria-label="Responsibilities">
+            <li>Support strategic partner operations across mortgage, protection, wealth and financial services.</li>
+            <li>Build Power BI dashboards to improve visibility of operational and partner data.</li>
+            <li>Automated the event initial request and allocation process, reducing manual administration.</li>
+            <li>Managed Consumer Duty and Fair Value Framework attestations in line with process requirements.</li>
+            <li>Managed invoices.</li>
+            <li>Created comparison documents, monthly reporting templates and process documentation.</li>
+            <li>Worked with stakeholders to identify process gaps and implement practical improvements.</li>
+          </ul>
+          <div class="timeline-toggle" aria-hidden="true">
+            <span id="toggle-text-1">Hide details</span>
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <polyline points="18 15 12 9 6 15"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXP 2 -->
+      <div class="timeline-item" role="listitem" tabindex="0" aria-expanded="false" data-focus="Events · Data · Coordination" onclick="toggleTimeline(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleTimeline(this)">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-card">
+          <div class="timeline-top">
+            <h3 class="timeline-role">Event Administrator</h3>
+            <span class="timeline-focus" aria-label="Focus areas">Events · Data</span>
+          </div>
+          <p class="timeline-company">Sesame Bankhall Group</p>
+          <p class="timeline-period">May 2024 – Jul 2025</p>
+          <ul class="timeline-bullets" aria-label="Responsibilities">
+            <li>Coordinated 30+ UK financial services events annually.</li>
+            <li>Managed event registrations, links, attendee information and partner communication.</li>
+            <li>Built Power BI dashboards for event and partner feedback analysis.</li>
+            <li>Managed multiple virtual events.</li>
+            <li>Analysed attendance and engagement data to support reporting and event improvements.</li>
+            <li>Maintained central event information and documentation to improve visibility across teams.</li>
+            <li>Supported colleagues with ad-hoc operational requirements and time-sensitive event activities.</li>
+          </ul>
+          <div class="timeline-toggle" aria-hidden="true">
+            <span>Show details</span>
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXP 3 -->
+      <div class="timeline-item" role="listitem" tabindex="0" aria-expanded="false" data-focus="Implementation · Solutions" onclick="toggleTimeline(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleTimeline(this)">
+        <div class="timeline-dot" aria-hidden="true"></div>
+        <div class="timeline-card">
+          <div class="timeline-top">
+            <h3 class="timeline-role">Associate Product Consultant</h3>
+            <span class="timeline-focus" aria-label="Focus areas">Implementation · Solutions</span>
+          </div>
+          <p class="timeline-company">Cvent</p>
+          <p class="timeline-period">Jan 2024 – Apr 2024</p>
+          <ul class="timeline-bullets" aria-label="Responsibilities">
+            <li>Supported implementation and configuration of event management solutions.</li>
+            <li>Resolved product and configuration issues for clients.</li>
+            <li>Worked with cross-functional teams to understand requirements and deliver solutions.</li>
+          </ul>
+          <div class="timeline-toggle" aria-hidden="true">
+            <span>Show details</span>
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider" role="separator"></div>
+
+<!-- ===== SELECTED WORK ===== -->
+<section id="work" class="section" aria-labelledby="work-heading">
+  <div class="container">
+    <div class="work-header fade-up">
+      <span class="eyebrow">Selected Work</span>
+      <h2 id="work-heading" class="section-heading">What I've built &amp; improved.</h2>
+      <p style="margin-top:14px; font-size:15px; color:var(--text-secondary); max-width:520px; line-height:1.7;">
+        Some of the processes, systems and operational improvements I've worked on.
+      </p>
+    </div>
+
+    <div class="work-grid" role="list">
+
+      <article class="work-card fade-up delay-1" role="listitem" tabindex="0"
+        aria-label="Project: Event Allocation Automation. Click to expand."
+        onclick="openModal('modal-01')" onkeydown="if(event.key==='Enter')openModal('modal-01')">
+        <p class="card-num">01</p>
+        <h3 class="card-title">Event Allocation Automation</h3>
+        <p class="card-tagline">From manual coordination → structured workflow</p>
+        <p class="card-body">Worked on automating the initial event request and allocation process, improving how event information moves through the team.</p>
+        <div class="card-tags">
+          <span class="tag">Process Improvement</span>
+          <span class="tag">Automation</span>
+          <span class="tag">Stakeholder Coordination</span>
+        </div>
+        <div class="card-arrow" aria-hidden="true">
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+          </svg>
+        </div>
+      </article>
+
+      <article class="work-card fade-up delay-2" role="listitem" tabindex="0"
+        aria-label="Project: Power BI Dashboards. Click to expand."
+        onclick="openModal('modal-02')" onkeydown="if(event.key==='Enter')openModal('modal-02')">
+        <p class="card-num">02</p>
+        <h3 class="card-title">Power BI Dashboards</h3>
+        <p class="card-tagline">Turning operational data into something people can actually use.</p>
+        <p class="card-body">Created Power BI dashboards to improve the visualisation of event allocation, feedback and partner/procurement data.</p>
+        <div class="card-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">Data Visualisation</span>
+          <span class="tag">Reporting</span>
+          <span class="tag">Insights</span>
+        </div>
+        <div class="card-arrow" aria-hidden="true">
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+          </svg>
+        </div>
+      </article>
+
+      <article class="work-card fade-up delay-3" role="listitem" tabindex="0"
+        aria-label="Project: Partner and Provider Operations. Click to expand."
+        onclick="openModal('modal-03')" onkeydown="if(event.key==='Enter')openModal('modal-03')">
+        <p class="card-num">03</p>
+        <h3 class="card-title">Partner &amp; Provider Operations</h3>
+        <p class="card-tagline">Keeping information accurate, accessible and actionable.</p>
+        <p class="card-body">Supporting partner and provider operations through clear documentation, data management and effective stakeholder communication.</p>
+        <div class="card-tags">
+          <span class="tag">Partner Operations</span>
+          <span class="tag">Documentation</span>
+          <span class="tag">Data Management</span>
+          <span class="tag">Communication</span>
+        </div>
+        <div class="card-arrow" aria-hidden="true">
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+          </svg>
+        </div>
+      </article>
+
+      <article class="work-card fade-up delay-4" role="listitem" tabindex="0"
+        aria-label="Project: Governance and Compliance. Click to expand."
+        onclick="openModal('modal-04')" onkeydown="if(event.key==='Enter')openModal('modal-04')">
+        <p class="card-num">04</p>
+        <h3 class="card-title">Governance &amp; Compliance</h3>
+        <p class="card-tagline">Making sure operational processes are supported by the right documentation.</p>
+        <p class="card-body">Supported Consumer Duty and Fair Value Framework attestations, maintaining documentation and ensuring information followed required processes.</p>
+        <div class="card-tags">
+          <span class="tag">Governance</span>
+          <span class="tag">Compliance</span>
+          <span class="tag">Documentation</span>
+          <span class="tag">Attention to Detail</span>
+        </div>
+        <div class="card-arrow" aria-hidden="true">
+          <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+          </svg>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== MODALS ===== -->
+<div class="modal-overlay" id="modal-01" role="dialog" aria-modal="true" aria-label="Event Allocation Automation details" onclick="closeModalOnOverlay(event,'modal-01')">
+  <div class="modal">
+    <div class="modal-inner">
+      <button class="modal-close" onclick="closeModal('modal-01')" aria-label="Close modal">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <p class="modal-num">01</p>
+      <h2 class="modal-title">Event Allocation Automation</h2>
+      <p class="modal-tagline">From manual coordination → structured workflow</p>
+      <p class="modal-body">Worked on automating the initial event request and allocation process, improving how event information moves through the team. The goal was to reduce manual administration and create a more reliable, consistent flow of information between stakeholders.</p>
+      <p class="modal-tags-label">Skills &amp; Areas</p>
+      <div class="modal-tags">
+        <span class="tag">Process Improvement</span>
+        <span class="tag">Automation</span>
+        <span class="tag">Stakeholder Coordination</span>
+        <span class="tag">Operations</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-02" role="dialog" aria-modal="true" aria-label="Power BI Dashboards details" onclick="closeModalOnOverlay(event,'modal-02')">
+  <div class="modal">
+    <div class="modal-inner">
+      <button class="modal-close" onclick="closeModal('modal-02')" aria-label="Close modal">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <p class="modal-num">02</p>
+      <h2 class="modal-title">Power BI Dashboards</h2>
+      <p class="modal-tagline">Turning operational data into something people can actually use.</p>
+      <p class="modal-body">Created Power BI dashboards to improve the visualisation of event allocation, feedback and partner/procurement data. The aim was to surface operational information in a way that made it genuinely useful for the team rather than just stored.</p>
+      <p class="modal-tags-label">Skills &amp; Areas</p>
+      <div class="modal-tags">
+        <span class="tag">Power BI</span>
+        <span class="tag">Data Visualisation</span>
+        <span class="tag">Reporting</span>
+        <span class="tag">Insights</span>
+        <span class="tag">Excel</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-03" role="dialog" aria-modal="true" aria-label="Partner and Provider Operations details" onclick="closeModalOnOverlay(event,'modal-03')">
+  <div class="modal">
+    <div class="modal-inner">
+      <button class="modal-close" onclick="closeModal('modal-03')" aria-label="Close modal">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <p class="modal-num">03</p>
+      <h2 class="modal-title">Partner &amp; Provider Operations</h2>
+      <p class="modal-tagline">Keeping information accurate, accessible and actionable.</p>
+      <p class="modal-body">Supporting partner and provider operations through clear documentation, data management and effective stakeholder communication. This involves maintaining accurate records, following up on outstanding items and ensuring information is accessible across the team.</p>
+      <p class="modal-tags-label">Skills &amp; Areas</p>
+      <div class="modal-tags">
+        <span class="tag">Partner Operations</span>
+        <span class="tag">Documentation</span>
+        <span class="tag">Data Management</span>
+        <span class="tag">Communication</span>
+        <span class="tag">Stakeholder Management</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="modal-04" role="dialog" aria-modal="true" aria-label="Governance and Compliance details" onclick="closeModalOnOverlay(event,'modal-04')">
+  <div class="modal">
+    <div class="modal-inner">
+      <button class="modal-close" onclick="closeModal('modal-04')" aria-label="Close modal">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <p class="modal-num">04</p>
+      <h2 class="modal-title">Governance &amp; Compliance</h2>
+      <p class="modal-tagline">Making sure operational processes are supported by the right documentation.</p>
+      <p class="modal-body">Supported Consumer Duty and Fair Value Framework attestations, maintaining documentation and ensuring information followed required processes. This work required careful attention to detail and a clear understanding of what documentation needs to be in place and why.</p>
+      <p class="modal-tags-label">Skills &amp; Areas</p>
+      <div class="modal-tags">
+        <span class="tag">Governance</span>
+        <span class="tag">Compliance</span>
+        <span class="tag">Documentation</span>
+        <span class="tag">Attention to Detail</span>
+        <span class="tag">Process Management</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider" role="separator"></div>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="section" aria-labelledby="skills-heading">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="eyebrow">What I Bring</span>
+      <h2 id="skills-heading" class="section-heading">Core capabilities.</h2>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-card fade-up delay-1">
+        <div class="skill-icon" aria-hidden="true">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3 class="skill-title">Partner Operations</h3>
+        <p class="skill-body">Stakeholder coordination, partner communication, documentation and follow-ups.</p>
+      </div>
+
+      <div class="skill-card fade-up delay-2">
+        <div class="skill-icon" aria-hidden="true">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+        </div>
+        <h3 class="skill-title">Process Improvement</h3>
+        <p class="skill-body">Identifying manual or unclear processes and creating simpler ways of working.</p>
+      </div>
+
+      <div class="skill-card fade-up delay-3">
+        <div class="skill-icon" aria-hidden="true">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="14"/>
+          </svg>
+        </div>
+        <h3 class="skill-title">Data &amp; Reporting</h3>
+        <p class="skill-body">Power BI dashboards, Excel reporting and turning operational information into useful insights.</p>
+      </div>
+
+      <div class="skill-card fade-up delay-4">
+        <div class="skill-icon" aria-hidden="true">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <h3 class="skill-title">Organisation</h3>
+        <p class="skill-body">Managing multiple priorities, maintaining records and keeping processes moving.</p>
+      </div>
+
+      <div class="skill-card fade-up delay-5">
+        <div class="skill-icon" aria-hidden="true">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+        </div>
+        <h3 class="skill-title">Communication</h3>
+        <p class="skill-body">Clear written communication and collaboration across teams and stakeholders.</p>
+      </div>
+
+      <div class="skill-card fade-up delay-6">
+        <div class="skill-icon" aria-hidden="true">
+          <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </div>
+        <h3 class="skill-title">Problem Solving</h3>
+        <p class="skill-body">Finding gaps, understanding the root cause and proposing practical improvements.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider" role="separator"></div>
+
+<!-- ===== TOOLS ===== -->
+<div class="tools-section" aria-label="Tools I work with">
+  <div class="tools-label">
+    <span class="eyebrow">Tools &amp; Platforms</span>
+  </div>
+  <div class="marquee-wrap">
+    <div class="marquee-track" aria-hidden="true">
+      <!-- Set 1 -->
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Power BI</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Excel</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Microsoft 365</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Cvent</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Slido</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Canva</div>
+      <!-- Set 2 (duplicate for seamless loop) -->
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Power BI</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Excel</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Microsoft 365</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Cvent</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Slido</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Canva</div>
+      <!-- Set 3 -->
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Power BI</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Excel</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Microsoft 365</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Cvent</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Slido</div>
+      <div class="tool-chip"><span class="tool-chip-dot"></span>Canva</div>
+    </div>
+  </div>
+  <!-- Screen-reader accessible list -->
+  <ul style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">
+    <li>Power BI</li><li>Excel</li><li>Microsoft 365</li><li>Cvent</li><li>Slido</li><li>Canva</li>
+  </ul>
+</div>
+
+<div class="divider" role="separator"></div>
+
+<!-- ===== EDUCATION ===== -->
+<section id="education" class="section" aria-labelledby="education-heading" style="padding-bottom: 80px;">
+  <div class="container">
+    <div class="section-header fade-up">
+      <span class="eyebrow">Education</span>
+      <h2 id="education-heading" class="section-heading">Academic background.</h2>
+    </div>
+    <div class="edu-card fade-up delay-1">
+      <div>
+        <p class="edu-degree">Bachelor of Technology — Biotechnology</p>
+        <p class="edu-school">Amity University</p>
+        <p class="edu-year">2020 – 2024</p>
+      </div>
+      <span class="edu-badge">B.Tech</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider" role="separator"></div>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span class="eyebrow fade-up">Contact</span>
+        <h2 id="contact-heading" class="contact-headline fade-up delay-1">
+          Let's build something that works better.
+        </h2>
+        <p class="contact-body fade-up delay-2">
+          I'm interested in opportunities where operations, partnerships, people and process improvement come together.
+        </p>
+        <div class="contact-ctas fade-up delay-3">
+          <a href="mailto:ishikasharma282001@gmail.com" class="btn btn-primary" aria-label="Send email to Ishika Sharma">Email Me</a>
+          <a href="https://linkedin.com/in/ishika-sharma" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="Visit Ishika Sharma's LinkedIn profile (opens in new tab)">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div class="contact-info fade-up delay-2">
+        <div class="contact-info-item">
+          <span class="contact-info-label">Name</span>
+          <span class="contact-info-value">Ishika Sharma</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Location</span>
+          <span class="contact-info-value">Gurugram, India</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Email</span>
+          <span class="contact-info-value">
+            <a href="mailto:ishikasharma282001@gmail.com">ishikasharma282001@gmail.com</a>
+          </span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">LinkedIn</span>
+          <span class="contact-info-value">
+            <a href="https://linkedin.com/in/ishika-sharma" target="_blank" rel="noopener noreferrer">linkedin.com/in/ishika-sharma</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Ishika Sharma</p>
+        <p class="footer-sub">Strategic Partnerships & Operations</p>
+      </div>
+      <p class="footer-copy">© 2026</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ===== NAVBAR SCROLL ===== */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 10);
+  }, { passive: true });
+
+  /* ===== MOBILE MENU ===== */
+  const toggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  toggle.addEventListener('click', () => {
+    const isOpen = toggle.classList.toggle('open');
+    mobileMenu.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+  document.querySelectorAll('.mobile-link').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  /* ===== SMOOTH SCROLL WITH OFFSET ===== */
+  const NAV_OFFSET = 72;
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.scrollY - NAV_OFFSET;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  /* ===== SCROLL FADE IN ===== */
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  fadeEls.forEach(el => obs.observe(el));
+
+  /* ===== HERO WAVE ANIMATION ===== */
+  const waves = [
+    { el: document.getElementById('wave1'), amp: 18, spd: 0.0006, phase: 0 },
+    { el: document.getElementById('wave2'), amp: 14, spd: 0.0005, phase: 1.2 },
+    { el: document.getElementById('wave3'), amp: 10, spd: 0.0004, phase: 2.4 },
+    { el: document.getElementById('wave4'), amp: 12, spd: 0.00045, phase: 0.8 },
+    { el: document.getElementById('wave5'), amp: 8,  spd: 0.00035, phase: 1.8 },
+  ];
+  const basePaths = [
+    'M-100,400 C200,{a} 400,{b} 700,380 C900,{c} 1100,440 1540,350',
+    'M-100,450 C150,{a} 350,{b} 650,420 C850,{c} 1100,480 1540,400',
+    'M-100,500 C250,{a} 500,{b} 800,460 C1000,{c} 1200,500 1540,440',
+    'M-100,320 C300,{a} 500,{b} 800,300 C1050,{c} 1250,360 1540,280',
+    'M-100,560 C200,{a} 450,{b} 750,510 C1000,{c} 1200,560 1540,490',
+  ];
+  const baseA = [300, 350, 380, 220, 460];
+  const baseB = [500, 550, 580, 420, 640];
+  const baseC = [280, 320, 370, 200, 400];
+
+  let mouseX = 0, mouseY = 0, targetX = 0, targetY = 0;
+  let prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!prefersReduced) {
+    document.addEventListener('mousemove', e => {
+      targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+      targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+    }, { passive: true });
+
+    let lastTime = 0;
+    function animateWaves(time) {
+      // Smooth mouse follow
+      mouseX += (targetX - mouseX) * 0.04;
+      mouseY += (targetY - mouseY) * 0.04;
+
+      waves.forEach((w, i) => {
+        if (!w.el) return;
+        const t = time * w.spd + w.phase;
+        const offsetA = Math.sin(t) * w.amp + mouseY * 10;
+        const offsetB = Math.cos(t * 0.8) * w.amp + mouseX * 8;
+        const offsetC = Math.sin(t * 1.2 + 1) * w.amp + mouseY * 6;
+        const d = basePaths[i]
+          .replace('{a}', Math.round(baseA[i] + offsetA))
+          .replace('{b}', Math.round(baseB[i] + offsetB))
+          .replace('{c}', Math.round(baseC[i] + offsetC));
+        w.el.setAttribute('d', d);
+      });
+      requestAnimationFrame(animateWaves);
+    }
+    requestAnimationFrame(animateWaves);
+  }
+
+  /* ===== 3D TILT ON PROJECT CARDS ===== */
+  if (!prefersReduced && window.matchMedia('(pointer: fine)').matches) {
+    document.querySelectorAll('.work-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        const dx = (e.clientX - cx) / (r.width / 2);
+        const dy = (e.clientY - cy) / (r.height / 2);
+        card.style.transform = `perspective(900px) rotateX(${-dy * 3}deg) rotateY(${dx * 3}deg) translateY(-2px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1), border-color 0.22s, box-shadow 0.22s';
+        setTimeout(() => { card.style.transition = ''; }, 400);
+      });
+    });
+  }
+
+  /* ===== TIMELINE TOGGLE ===== */
+  function toggleTimeline(item) {
+    const isActive = item.classList.contains('active');
+    document.querySelectorAll('.timeline-item').forEach(i => {
+      i.classList.remove('active');
+      i.setAttribute('aria-expanded', 'false');
+      const txt = i.querySelector('.timeline-toggle span');
+      if (txt) txt.textContent = 'Show details';
+    });
+    if (!isActive) {
+      item.classList.add('active');
+      item.setAttribute('aria-expanded', 'true');
+      const txt = item.querySelector('.timeline-toggle span');
+      if (txt) txt.textContent = 'Hide details';
+    }
+  }
+
+  /* ===== MODALS ===== */
+  function openModal(id) {
+    const overlay = document.getElementById(id);
+    if (!overlay) return;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    // Focus the close button
+    setTimeout(() => {
+      const btn = overlay.querySelector('.modal-close');
+      if (btn) btn.focus();
+    }, 50);
+  }
+  function closeModal(id) {
+    const overlay = document.getElementById(id);
+    if (!overlay) return;
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeModalOnOverlay(e, id) {
+    if (e.target === e.currentTarget) closeModal(id);
+  }
+  // Close on Escape
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => {
+        m.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+
+  /* ===== BACKGROUND NODE-NETWORK ANIMATION =====
+     Represents: partnerships, data flows, operational coordination.
+     Very subtle — warm dots connected by thin accent lines.
+  ================================================================ */
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const canvas = document.getElementById('bg-network');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+
+    const ACCENT = [43, 82, 204];   // cobalt blue
+    const DOT_COLOR   = `rgba(${ACCENT[0]},${ACCENT[1]},${ACCENT[2]},0.22)`;
+    const LINE_COLOR  = `rgba(${ACCENT[0]},${ACCENT[1]},${ACCENT[2]},0.07)`;
+    const LINK_DIST   = 160;        // max px between connected nodes
+    const NODE_COUNT_BASE = 38;     // desktop node count
+    const SPEED = 0.28;             // slow drift
+
+    let W, H, nodes = [];
+    let mx = -9999, my = -9999;    // mouse position
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', () => { resize(); buildNodes(); }, { passive: true });
+
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX;
+      my = e.clientY;
+    }, { passive: true });
+
+    function buildNodes() {
+      const count = Math.min(NODE_COUNT_BASE, Math.floor((W * H) / 28000));
+      nodes = Array.from({ length: count }, () => ({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 1.8 + 1.2,      // radius 1.2–3px
+        vx: (Math.random() - 0.5) * SPEED,
+        vy: (Math.random() - 0.5) * SPEED,
+        pulse: Math.random() * Math.PI * 2, // phase for opacity pulse
+      }));
+    }
+    buildNodes();
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      // Update positions
+      nodes.forEach(n => {
+        n.x += n.vx;
+        n.y += n.vy;
+        n.pulse += 0.012;
+
+        // Soft boundary bounce
+        if (n.x < 0)  { n.x = 0;  n.vx *= -1; }
+        if (n.x > W)  { n.x = W;  n.vx *= -1; }
+        if (n.y < 0)  { n.y = 0;  n.vy *= -1; }
+        if (n.y > H)  { n.y = H;  n.vy *= -1; }
+
+        // Very gentle mouse repulsion (keeps nodes from crowding cursor)
+        const dx = n.x - mx;
+        const dy = n.y - my;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 110 && dist > 0) {
+          const force = (110 - dist) / 110 * 0.012;
+          n.x += (dx / dist) * force * 20;
+          n.y += (dy / dist) * force * 20;
+        }
+      });
+
+      // Draw connections
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < LINK_DIST) {
+            const alpha = (1 - d / LINK_DIST) * 0.12;
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(${ACCENT[0]},${ACCENT[1]},${ACCENT[2]},${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw nodes
+      nodes.forEach(n => {
+        const pulseFactor = 0.5 + 0.5 * Math.sin(n.pulse);
+        const alpha = 0.12 + pulseFactor * 0.10;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${ACCENT[0]},${ACCENT[1]},${ACCENT[2]},${alpha})`;
+        ctx.fill();
+      });
+
+      requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+  })();
+
+</script>
+
+</body>
+</html>
